@@ -9,103 +9,82 @@
 <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --paper:#ffffff;
-    --panel:#f6f8f9;
-    --ink:#15181d;
-    --muted:#5c6673;
-    --faint:#8a93a1;
-    --line:#e3e7ec;
-    --accent:#0f5c5b;          /* petrol */
-    --accent-soft:#e6f0ef;
+    --paper:#ffffff; --panel:#f6f8f9; --ink:#15181d; --muted:#5c6673; --faint:#8a93a1; --line:#e3e7ec;
+    --accent:#0f5c5b; --accent-soft:#e6f0ef;
     --open-tx:#0e7a3c; --open-bg:#e7f5ec; --open-bar:#18a45a;
     --cont-tx:#1a56b0; --cont-bg:#e9f1fb; --cont-bar:#2f74d0;
-    --shut-tx:#a63a38; --shut-bg:#f6ece9; --shut-bar:#c25550;
+    --shut-bar:#c25550;
     --radius:10px;
   }
   *{box-sizing:border-box}
   html{-webkit-text-size-adjust:100%}
-  body{
-    margin:0;
-    background:var(--panel);
-    color:var(--ink);
+  body{margin:0;background:var(--panel);color:var(--ink);
     font-family:"Libre Franklin",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    font-size:16px;
-    line-height:1.55;
-    -webkit-font-smoothing:antialiased;
-  }
+    font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
   .wrap{max-width:880px;margin:0 auto;padding:28px 18px 64px}
 
-  /* ---- header ---- */
   header{margin:6px 0 26px}
-  .kicker{color:var(--accent);font-weight:600;font-size:.82rem;letter-spacing:.02em;margin:0 0 6px}
+  .kicker{color:var(--accent);font-weight:600;font-size:.82rem;margin:0 0 6px}
   h1{font-size:1.72rem;line-height:1.18;font-weight:700;margin:0 0 10px;letter-spacing:-.01em}
-  .lede{color:var(--muted);font-size:1.02rem;margin:0 0 4px;max-width:62ch}
+  .lede{color:var(--muted);font-size:1.02rem;margin:0;max-width:62ch}
   .asof{color:var(--faint);font-size:.86rem;margin:12px 0 0}
-
-  .snapshot{
-    margin:20px 0 0;padding:14px 16px;background:var(--paper);
-    border:1px solid var(--line);border-radius:var(--radius);
-    font-size:.95rem;color:var(--muted)
-  }
+  .snapshot{margin:20px 0 0;padding:14px 16px;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);font-size:.95rem;color:var(--muted)}
   .snapshot b{color:var(--ink);font-weight:600}
   .legend{display:flex;flex-wrap:wrap;gap:8px 14px;margin-top:12px}
   .legend span{display:inline-flex;align-items:center;gap:7px;font-size:.82rem;color:var(--muted)}
   .dot{width:9px;height:9px;border-radius:50%}
-  .dot.open{background:var(--open-bar)} .dot.cont{background:var(--cont-bar)} .dot.shut{background:var(--shut-bar)}
+  .dot.open{background:var(--open-bar)} .dot.cont{background:var(--cont-bar)}
 
-  /* ---- sections ---- */
   section{margin:34px 0 0}
   .sec-head{display:flex;align-items:baseline;gap:10px;margin:0 0 4px}
   .sec-head h2{font-size:1.16rem;font-weight:700;margin:0;letter-spacing:-.005em}
   .sec-head .no{color:var(--accent);font-weight:700;font-size:.95rem}
   .sec-sub{color:var(--faint);font-size:.86rem;margin:0 0 16px}
 
-  /* ---- cards ---- */
-  .card{
-    position:relative;background:var(--paper);border:1px solid var(--line);
-    border-radius:var(--radius);padding:16px 18px 16px 20px;margin:0 0 14px;overflow:hidden
-  }
+  .card{position:relative;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px 16px 20px;margin:0 0 14px;overflow:hidden}
   .card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--faint)}
   .card.open::before{background:var(--open-bar)}
   .card.cont::before{background:var(--cont-bar)}
-  .card.shut::before{background:var(--shut-bar)}
-
   .card-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:6px 12px;margin-bottom:4px}
   .card-title{font-size:1.06rem;font-weight:600;margin:0}
   .card-note-inline{color:var(--faint);font-size:.82rem;font-weight:400}
-
-  .badge{
-    flex:none;display:inline-block;font-size:.76rem;font-weight:600;
-    padding:3px 10px;border-radius:100px;white-space:nowrap
-  }
+  .badge{flex:none;display:inline-block;font-size:.76rem;font-weight:600;padding:3px 10px;border-radius:100px;white-space:nowrap}
   .badge.open{color:var(--open-tx);background:var(--open-bg)}
   .badge.cont{color:var(--cont-tx);background:var(--cont-bg)}
-  .badge.shut{color:var(--shut-tx);background:var(--shut-bg)}
 
   dl.facts{display:grid;grid-template-columns:1fr;gap:9px 26px;margin:10px 0 0}
   .fact{margin:0}
   .fact dt{color:var(--faint);font-size:.76rem;font-weight:500;margin:0 0 1px}
   .fact dd{margin:0;font-size:.95rem;color:var(--ink)}
   .fact dd .val-strong{font-weight:600}
+  .flag{display:inline-block;margin-top:2px;font-size:.82rem;color:#a05a1e;background:#fbf1e5;border:1px solid #f0dfc7;border-radius:6px;padding:2px 8px}
 
-  /* ---- prose blocks ---- */
+  .howto{margin-top:14px;padding-top:13px;border-top:1px dashed var(--line)}
+  .howto h4{font-size:.78rem;font-weight:600;color:var(--accent);margin:0 0 10px}
+  ol.steps{margin:0;padding:0;list-style:none;counter-reset:step}
+  ol.steps li{position:relative;padding-left:30px;margin:0 0 9px;font-size:.92rem;line-height:1.5}
+  ol.steps li:last-child{margin-bottom:0}
+  ol.steps li::before{counter-increment:step;content:counter(step);position:absolute;left:0;top:1px;width:20px;height:20px;border-radius:50%;background:var(--accent-soft);color:var(--accent);font-size:.72rem;font-weight:700;display:flex;align-items:center;justify-content:center}
+  ul.points{margin:0;padding-left:18px}
+  ul.points li{margin:0 0 7px;font-size:.92rem;line-height:1.5}
+  ul.points li:last-child{margin-bottom:0}
+
+  .callout{margin:0 0 14px;padding:12px 15px;background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--shut-bar);border-radius:8px;font-size:.88rem;color:var(--muted)}
+  .callout b{color:var(--ink);font-weight:600}
+
   .block{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;margin:0 0 14px}
-  .block h3{font-size:1rem;font-weight:600;margin:0 0 10px}
   .scenario{margin:0 0 12px}
   .scenario:last-child{margin-bottom:0}
   .scenario p{margin:0}
   .scenario .lab{font-weight:600}
   .scenario .path{color:var(--accent);font-weight:600}
-
   ul.notes{margin:0;padding-left:18px}
   ul.notes li{margin:0 0 9px;font-size:.95rem}
   ul.notes li:last-child{margin-bottom:0}
-
   .sources{font-size:.9rem;color:var(--muted)}
   .sources p{margin:0 0 8px}
   .sources b{color:var(--ink);font-weight:600}
   .sources code{font-family:inherit;color:var(--accent)}
-
   footer{margin:36px 0 0;padding-top:16px;border-top:1px solid var(--line);color:var(--faint);font-size:.82rem}
 
   @media (min-width:640px){
@@ -122,23 +101,22 @@
   <header>
     <p class="kicker">Finanza agevolata · Lombardia</p>
     <h1>Trasformazione digitale delle PMI lombarde</h1>
-    <p class="lede">Mappa degli strumenti disponibili per digitalizzare o sviluppare soluzioni 4.0, ordinati per livello: camerale, regionale e nazionale.</p>
-    <p class="asof">Stato aggiornato al 9 settembre 2026.</p>
+    <p class="lede">Strumenti attualmente attivi e come partecipare. I bandi chiusi o esauriti sono stati rimossi.</p>
+    <p class="asof">Stato verificato su fonti ufficiali al 9 settembre 2026.</p>
 
     <div class="snapshot">
-      In sintesi: <b>3 bandi aperti</b> (SI4.0, SPIDY, Competenze &amp; Innovazione), <b>misure nazionali attive in continuo</b> (Nuova Sabatini, Iperammortamento, SELFI 4.0) e <b>2 chiusi</b> (Voucher Doppia Transizione, Rafforza &amp; Innova).
+      In sintesi: al 9 settembre risultano attivi <b>SI4.0</b> (camerale, fino al 25/9), <b>SPIDY 2026</b> (camerale Milano-MB-Lodi, fino al 30/9 salvo esaurimento), <b>Nuova Sabatini</b> e <b>Iperammortamento</b> (nazionali) e il servizio gratuito <b>PID / SELFI 4.0</b>. Restano chiusi o sospesi Voucher Doppia Transizione, Competenze &amp; Innovazione e Rafforza &amp; Innova.
       <div class="legend">
-        <span><i class="dot open"></i>Aperto</span>
+        <span><i class="dot open"></i>Aperto (con scadenza)</span>
         <span><i class="dot cont"></i>Attivo / sportello continuo</span>
-        <span><i class="dot shut"></i>Chiuso</span>
       </div>
     </div>
   </header>
 
-  <!-- CAMERALE -->
+  <!-- CAMERALE / REGIONALE -->
   <section>
-    <div class="sec-head"><span class="no">1</span><h2>Livello camerale</h2></div>
-    <p class="sec-sub">Camere di Commercio / Unioncamere Lombardia</p>
+    <div class="sec-head"><span class="no">1</span><h2>Camerale e regionale</h2></div>
+    <p class="sec-sub">Camere di Commercio / Regione Lombardia</p>
 
     <article class="card open">
       <div class="card-head">
@@ -151,83 +129,73 @@
         <div class="fact"><dt>Investimento minimo</dt><dd>€ 25.000</dd></div>
         <div class="fact"><dt>Territorio</dt><dd>CCIAA Bergamo, Brescia, Milano Monza Brianza Lodi</dd></div>
         <div class="fact"><dt>Selezione</dt><dd>Graduatoria di merito (min. 65/100)</dd></div>
-        <div class="fact wide"><dt>Requisiti chiave</dt><dd>Report SELFI 4.0 (aggiornato dal 1/1/2026) e polizza catastrofale; una sola domanda per impresa; regime de minimis.</dd></div>
       </dl>
-    </article>
-
-    <article class="card shut">
-      <div class="card-head">
-        <p class="card-title">Voucher Doppia Transizione 2026</p>
-        <span class="badge shut">Chiuso dal 29/07/2026</span>
+      <div class="howto">
+        <h4>Come partecipare</h4>
+        <ol class="steps">
+          <li>Verifica i requisiti: MPMI, sede legale in Lombardia e sede operativa iscritta a una delle tre CCIAA; non aver ricevuto il Voucher Digitali 4.0 2025 o il SI4.0 2025; DURC e diritto annuale in regola.</li>
+          <li>Redigi o aggiorna il <b>Report SELFI 4.0</b> (dal 1/1/2026) tramite il Punto Impresa Digitale.</li>
+          <li>Attiva la <b>polizza catastrofale</b> e recupera il certificato.</li>
+          <li>Definisci il progetto di sviluppo e raccogli i preventivi da fornitori qualificati (DIH, EDIH, Competence Center, università, startup innovative).</li>
+          <li>Accedi a <b>ReStart</b> (restart.infocamere.it) con SPID/CNS/CIE e firma digitale.</li>
+          <li>Compila la domanda e gli Allegati A (Progetto), B (Prospetto spese), C (Dimensione impresa); firma digitalmente e invia entro le 12:00 del 25/09/2026.</li>
+        </ol>
       </div>
-      <dl class="facts">
-        <div class="fact wide"><dt>Cosa finanziava</dt><dd>Adozione di tecnologie 4.0 con quota obbligatoria di consulenza/formazione (30–70%).</dd></div>
-        <div class="fact"><dt>Contributo</dt><dd>50% · max € 10.000</dd></div>
-        <div class="fact"><dt>Investimento minimo</dt><dd>€ 4.000</dd></div>
-        <div class="fact wide"><dt>Territorio</dt><dd>Brescia, Como-Lecco, Cremona-Mantova-Pavia, Milano MB Lodi, Sondrio, Varese (Bergamo escluso)</dd></div>
-        <div class="fact wide"><dt>Stato</dt><dd>Sportello chiuso per esaurimento fondi e lista d'attesa (aperto ~1 giorno).</dd></div>
-      </dl>
     </article>
 
     <article class="card open">
       <div class="card-head">
-        <p class="card-title">SPIDY 2026</p>
+        <p class="card-title">SPIDY 2026 <span class="card-note-inline">Speed up your business · CCIAA Milano MB Lodi</span></p>
         <span class="badge open">Aperto · scad. 30/09/2026</span>
       </div>
       <dl class="facts">
-        <div class="fact wide"><dt>Cosa finanzia</dt><dd>Innovazione tramite collaborazione con startup / PMI innovative italiane.</dd></div>
-        <div class="fact"><dt>Contributo</dt><dd>Fino a € 15.000</dd></div>
-        <div class="fact"><dt>Territorio</dt><dd>Milano Monza Brianza Lodi</dd></div>
+        <div class="fact wide"><dt>Cosa finanzia</dt><dd>Progetti di co-innovazione: acquisto di prodotti, servizi o licenze SaaS ad alto valore innovativo (anche PoC) da startup o PMI innovative italiane.</dd></div>
+        <div class="fact"><dt>Contributo</dt><dd><span class="val-strong">50%</span> · max € 15.000 (fino a € 18.000 con +10% se il fornitore è locale)</dd></div>
+        <div class="fact"><dt>Spese ammissibili</dt><dd>€ 5.000 – € 30.000</dd></div>
+        <div class="fact"><dt>Territorio</dt><dd>Sede legale e/o operativa a Milano, Monza Brianza o Lodi</dd></div>
+        <div class="fact"><dt>Selezione</dt><dd>Sportello cronologico (valutativo)</dd></div>
+        <div class="fact wide"><dt>Vincolo</dt><dd>Domanda congiunta con una startup/PMI innovativa italiana; MPMI non iscritta alle sezioni speciali startup/PMI innovative.</dd></div>
+        <div class="fact wide"><span class="flag">Sportello a esaurimento su € 700.000 — verifica la disponibilità residua prima di procedere</span></div>
       </dl>
+      <div class="howto">
+        <h4>Come partecipare</h4>
+        <ol class="steps">
+          <li>Verifica i requisiti: MPMI con sede a Milano/MB/Lodi (non startup o PMI innovativa); DURC, diritto camerale e polizza catastrofale in regola.</li>
+          <li>Individua una <b>startup o PMI innovativa italiana</b> come fornitore/partner del progetto.</li>
+          <li>Definisci il progetto di co-innovazione e raccogli i preventivi (spese € 5.000 – € 30.000).</li>
+          <li>Accedi a <b>ReStart</b> (restart.infocamere.it) con SPID/CNS/CIE e verifica la disponibilità residua dei fondi.</li>
+          <li>Compila e firma digitalmente la domanda con gli allegati (A domanda, B modulo impresa partner, C prospetto spese) e i preventivi; invia entro il 30/09/2026 (salvo esaurimento).</li>
+        </ol>
+      </div>
     </article>
 
     <article class="card cont">
       <div class="card-head">
         <p class="card-title">PID — SELFI 4.0 <span class="card-note-inline">Punto Impresa Digitale</span></p>
-        <span class="badge cont">Sempre attivo</span>
+        <span class="badge cont">Sempre attivo · gratuito</span>
       </div>
       <dl class="facts">
-        <div class="fact wide"><dt>Cosa offre</dt><dd>Autovalutazione gratuita della maturità digitale e mentoring.</dd></div>
+        <div class="fact wide"><dt>Cosa offre</dt><dd>Autovalutazione gratuita della maturità digitale (Report SELFI 4.0), assessment e digital mentoring.</dd></div>
         <div class="fact"><dt>Costo</dt><dd>Gratuito</dd></div>
-        <div class="fact"><dt>Utilità</dt><dd>Prerequisito documentale di molti bandi camerali</dd></div>
+        <div class="fact"><dt>Utilità</dt><dd>Prerequisito documentale del SI4.0</dd></div>
       </dl>
-    </article>
-  </section>
-
-  <!-- REGIONALE -->
-  <section>
-    <div class="sec-head"><span class="no">2</span><h2>Livello regionale</h2></div>
-    <p class="sec-sub">Regione Lombardia / Finlombarda — PR FESR e FSE+ 2021-2027</p>
-
-    <article class="card open">
-      <div class="card-head">
-        <p class="card-title">Competenze &amp; Innovazione (2ª ed.)</p>
-        <span class="badge open">Aperto · verifica scadenza</span>
+      <div class="howto">
+        <h4>Come accedere</h4>
+        <ul class="points">
+          <li>Contatta il PID della tua Camera (per Milano: milomb.camcom.it › Punto Impresa Digitale).</li>
+          <li>Richiedi l'assessment, il digital mentoring e la compilazione del Report SELFI 4.0.</li>
+        </ul>
       </div>
-      <dl class="facts">
-        <div class="fact wide"><dt>Cosa finanzia</dt><dd>Sviluppo competenze, formazione e Innovation Manager su innovazione digitale (AI, cloud, cybersecurity, ERP/CRM, IoT, RPA).</dd></div>
-        <div class="fact"><dt>Contributo</dt><dd><span class="val-strong">70%</span> · fino a € 50.000</dd></div>
-        <div class="fact"><dt>Beneficiari</dt><dd>PMI con sede operativa in Lombardia</dd></div>
-        <div class="fact wide"><dt>Canale</dt><dd>PR FSE+ — piattaforma Bandi e Servizi di Regione Lombardia</dd></div>
-      </dl>
     </article>
 
-    <article class="card shut">
-      <div class="card-head">
-        <p class="card-title">Rafforza &amp; Innova <span class="card-note-inline">ex «Innodriver» · PR FESR 1.1.2</span></p>
-        <span class="badge shut">Chiuso · finestra terminata 30/06/2026</span>
-      </div>
-      <dl class="facts">
-        <div class="fact wide"><dt>Cosa finanzia</dt><dd>Trasferimento tecnologico PMI ↔ Organismi di Ricerca (PoC, prototipo, MVP).</dd></div>
-        <div class="fact"><dt>Contributo</dt><dd>€ 30.000 forfettario</dd></div>
-        <div class="fact"><dt>Gestore</dt><dd>Finlombarda (salvo nuova edizione)</dd></div>
-      </dl>
-    </article>
+    <div class="callout">
+      <b>Attualmente non disponibili</b> (chiusi o sospesi per esaurimento risorse): Voucher Doppia Transizione 2026 (chiuso il 29/07), Competenze &amp; Innovazione 2ª ed. (sportello sospeso dal 22/05), Rafforza &amp; Innova (chiuso il 30/06). Possono riaprire: monitora gli avvisi ufficiali.
+    </div>
   </section>
 
   <!-- NAZIONALE -->
   <section>
-    <div class="sec-head"><span class="no">3</span><h2>Livello nazionale</h2></div>
+    <div class="sec-head"><span class="no">2</span><h2>Nazionale</h2></div>
     <p class="sec-sub">MIMIT / Invitalia — accessibili anche alle PMI lombarde</p>
 
     <article class="card cont">
@@ -238,10 +206,16 @@
       <dl class="facts">
         <div class="fact wide"><dt>Cosa finanzia</dt><dd>Beni strumentali nuovi: macchinari, hardware, software gestionali, automazione, tecnologie digitali.</dd></div>
         <div class="fact wide"><dt>Agevolazione</dt><dd>Contributo in conto interessi (2,75% ordinaria · 3,575% linee 4.0/green) su finanziamento da € 20.000 a 4 mln.</dd></div>
-        <div class="fact"><dt>Canale</dt><dd>Banca/intermediario convenzionato</dd></div>
-        <div class="fact"><dt>Portale</dt><dd>benistrumentali.dgiai.gov.it</dd></div>
-        <div class="fact wide"><dt>Nota</dt><dd>A esaurimento; dotazione 2026 discordante tra le fonti (vedi avvertenze).</dd></div>
       </dl>
+      <div class="howto">
+        <h4>Come partecipare</h4>
+        <ol class="steps">
+          <li>Identifica i beni nuovi da acquistare. L'investimento <b>non deve iniziare prima</b> della domanda.</li>
+          <li>Rivolgiti a una <b>banca o intermediario convenzionato MIMIT</b> per il finanziamento o leasing (€ 20.000 – 4 mln).</li>
+          <li>Presenta la domanda tramite la banca su <b>benistrumentali.dgiai.gov.it</b> (SPID/CIE/CNS + firma digitale) e ottieni il CUP da riportare su tutte le fatture.</li>
+          <li>Completa l'investimento entro 12 mesi dalla stipula del finanziamento e rendiconta.</li>
+        </ol>
+      </div>
     </article>
 
     <article class="card cont">
@@ -250,21 +224,37 @@
         <span class="badge cont">Attivo</span>
       </div>
       <dl class="facts">
-        <div class="fact wide"><dt>Cosa offre</dt><dd>Maggiorazione dell'ammortamento su beni nuovi funzionali alla trasformazione digitale. Sostituisce i crediti d'imposta Transizione 4.0/5.0.</dd></div>
+        <div class="fact wide"><dt>Cosa offre</dt><dd>Maggiorazione dell'ammortamento su beni nuovi funzionali alla trasformazione digitale. Sostituisce i crediti Transizione 4.0/5.0.</dd></div>
         <div class="fact"><dt>Finestra</dt><dd>Investimenti 1/1/2026 – 30/9/2028</dd></div>
         <div class="fact"><dt>Cumulo</dt><dd>Con Nuova Sabatini (entro il costo del bene)</dd></div>
       </dl>
+      <div class="howto">
+        <h4>Come beneficiarne</h4>
+        <ul class="points">
+          <li>Acquista beni strumentali nuovi 4.0/digitali nella finestra agevolata.</li>
+          <li>Assicura l'<b>interconnessione</b> al sistema di gestione aziendale e acquisisci la perizia asseverata / attestato di conformità per i beni sopra soglia.</li>
+          <li>Invia le comunicazioni al MIMIT previste dai decreti attuativi e fruisci della maggiorazione in dichiarazione dei redditi.</li>
+          <li>Essendo una misura fiscale, coordina l'operazione con il commercialista.</li>
+        </ul>
+      </div>
     </article>
 
     <article class="card cont">
       <div class="card-head">
-        <p class="card-title">Altre misure strutturali</p>
+        <p class="card-title">Altre misure nazionali</p>
         <span class="badge cont">Attive</span>
       </div>
       <dl class="facts">
         <div class="fact"><dt>R&amp;S e Innovazione</dt><dd>Credito d'imposta per ricerca e sviluppo</dd></div>
-        <div class="fact"><dt>Smart&amp;Start Italia</dt><dd>Startup innovative (Invitalia) — sempre aperto</dd></div>
+        <div class="fact"><dt>Smart&amp;Start Italia</dt><dd>Solo startup innovative (Invitalia)</dd></div>
       </dl>
+      <div class="howto">
+        <h4>Come accedere</h4>
+        <ul class="points">
+          <li><b>R&amp;S e Innovazione</b>: fruizione in F24 con documentazione tecnica/perizia; verifica ambito e aliquote con il commercialista.</li>
+          <li><b>Smart&amp;Start</b>: riservato alle startup innovative iscritte alla sezione speciale; domanda sempre aperta su invitalia.it, a graduatoria.</li>
+        </ul>
+      </div>
     </article>
   </section>
 
@@ -274,11 +264,15 @@
     <div class="block">
       <div class="scenario">
         <p><span class="lab">Digitalizzare processi interni</span> (AI, cloud, ERP, cybersecurity):<br>
-        <span class="path">Competenze &amp; Innovazione</span> per competenze e consulenza, più <span class="path">Nuova Sabatini + Iperammortamento</span> per hardware e software. Il voucher camerale quando riaprirà.</p>
+        leva nazionale — <span class="path">Nuova Sabatini + Iperammortamento</span> per hardware e software; usa il <span class="path">PID / SELFI 4.0</span> per l'assessment gratuito.</p>
+      </div>
+      <div class="scenario">
+        <p><span class="lab">Innovare acquistando soluzioni da startup/PMI innovative:</span><br>
+        <span class="path">SPIDY 2026</span> (Milano-MB-Lodi, fino al 30/09), in logica di open innovation.</p>
       </div>
       <div class="scenario">
         <p><span class="lab">Sviluppare soluzioni/prodotti 4.0 per il mercato:</span><br>
-        <span class="path">SI4.0</span> (aperto) oppure <span class="path">Rafforza &amp; Innova</span> — trasferimento tecnologico — quando riaprirà.</p>
+        <span class="path">SI4.0</span>, aperto fino al 25/09/2026.</p>
       </div>
     </div>
   </section>
@@ -288,10 +282,10 @@
     <div class="sec-head"><span class="no">!</span><h2>Note e avvertenze</h2></div>
     <div class="block">
       <ul class="notes">
-        <li>I bandi a sportello possono chiudere prima della scadenza per esaurimento fondi: il Voucher Doppia Transizione 2026 è rimasto aperto circa un giorno.</li>
-        <li>Dotazione Nuova Sabatini 2026: le fonti divergono — circa 200 mln nel 2026 (su 650 mln per il biennio 2026-2027) oppure 100 mln. Verificare la disponibilità residua sul portale MIMIT prima di pianificare.</li>
-        <li>«Voucher Digitali 4.0/5.0» è un'etichetta usata impropriamente da molti consulenti per indicare i bandi camerali «Doppia Transizione» o il SI4.0: sono misure diverse.</li>
-        <li>Il credito d'imposta Transizione 5.0 è cessato per i nuovi investimenti dal 1/1/2026 ed è stato sostituito dall'iperammortamento.</li>
+        <li>I bandi a sportello possono chiudere prima della scadenza per esaurimento fondi: è già accaduto nel 2026 al Voucher Doppia Transizione e a Competenze &amp; Innovazione.</li>
+        <li><b>SPIDY 2026 è un'edizione reale</b> (Det. dirigenziale n. 43 del 27/04/2026), aperta dal 4 maggio al 30 settembre 2026. Attenzione: sul sito camerale lo slug generico mostra ancora l'edizione 2025 in liquidazione. Un singolo portale la dà "chiusa il 9 giugno 2026", ma l'informazione è su una pagina che mescola più bandi e non è confermata da altre fonti: verifica la disponibilità residua su ReStart prima di procedere.</li>
+        <li>Dotazione Nuova Sabatini 2026: fonti discordanti (≈200 mln nel 2026 su 650 per il biennio, oppure 100 mln) — verifica la disponibilità residua sul portale MIMIT.</li>
+        <li>Il credito d'imposta Transizione 5.0 è cessato per i nuovi investimenti dal 1/1/2026 (sostituito dall'iperammortamento).</li>
       </ul>
     </div>
   </section>
@@ -300,9 +294,11 @@
   <section>
     <div class="sec-head"><span class="no">§</span><h2>Fonti ufficiali</h2></div>
     <div class="block sources">
-      <p><b>Unioncamere Lombardia</b> — <code>unioncamerelombardia.it</code> (SI4.0 2026, Voucher Doppia Transizione 2026)</p>
-      <p><b>MIMIT</b> — <code>mimit.gov.it</code> · <code>benistrumentali.dgiai.gov.it</code> (Nuova Sabatini, iperammortamento, Transizione 4.0/5.0)</p>
-      <p><b>Regione Lombardia</b> — <code>bandi.servizirl.it</code> (Competenze &amp; Innovazione, Rafforza &amp; Innova)</p>
+      <p><b>CCIAA Milano Monza Brianza Lodi</b> — <code>milomb.camcom.it</code> (SI4.0, SPIDY 2026, Punto Impresa Digitale) · contatto SPIDY: <code>giovani.startup@mi.camcom.it</code></p>
+      <p><b>Unioncamere Lombardia</b> — <code>unioncamerelombardia.it</code> (SI4.0 2026; Competenze &amp; Innovazione — stato sportello)</p>
+      <p><b>InfoCamere ReStart</b> — <code>restart.infocamere.it</code> (presentazione domande camerali)</p>
+      <p><b>MIMIT</b> — <code>mimit.gov.it</code> · <code>benistrumentali.dgiai.gov.it</code> (Nuova Sabatini, iperammortamento)</p>
+      <p><b>Invitalia</b> — <code>invitalia.it</code> (Smart&amp;Start)</p>
     </div>
   </section>
 
